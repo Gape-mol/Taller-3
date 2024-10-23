@@ -19,7 +19,7 @@ class ClubTest {
         Equipo equipo = new Equipo("Equipo", deporte);
         Entrenador entrenador = new Entrenador("Juan", "Perez", "b@b.com", 50, deporte);
         club.asignarEntrenador(equipo, entrenador);
-        assertEquals(entrenador, club.getEntrenador(entrenador));
+        assertEquals(entrenador, equipo.getEntrenador());
     }
 
     @Test

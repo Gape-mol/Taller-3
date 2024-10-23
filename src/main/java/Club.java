@@ -64,6 +64,7 @@ public class Club {
 						System.out.println("El entrenador ya se encuentra asignado en otro equipo");
 					}
 				} else {
+					entrenadores.add(entrenador);
 					entrenador.setEquipo(equipo);
 					equipo.setEntrenador(entrenador);
 				}
