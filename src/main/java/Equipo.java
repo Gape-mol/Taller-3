@@ -47,4 +47,19 @@ public class Equipo {
 		return this.deporte;
 	}
 
+	public Entrenador getEntrenador() {
+		return this.entrenador;
+	}
+	public void setEntrenador(Entrenador entrenador) {
+		this.entrenador = entrenador;
+	}
+
+	public Deportista getIntegrantes(Deportista deportista) {
+		for (Deportista integrante : this.integrantes) {
+			if (integrante.equals(deportista)) {
+				return integrante;
+			}
+		}
+		return null;
+	}
 }

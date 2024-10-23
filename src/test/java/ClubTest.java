@@ -40,6 +40,46 @@ class ClubTest {
         Entrenador entrenador = new Entrenador("Juan", "Perez", "b@b.com", 50 ,deporte);
         club.asignarEntrenador(equipo, entrenador);
         club.asignarEntrenador(equipo, entrenador);
+        assertEquals(1, club.getEntrenadoresList().size());
     }
 
+    @Test
+    void agregarEquipo() {
+        Club club = new Club("Club Deportivo");
+        Deporte deporte = new Deporte("Futbol");
+        Equipo equipo = new Equipo("Equipo", deporte);
+        club.crearEquipo(equipo);
+        assertEquals(equipo, club.getEquipo(equipo));
+    }
+
+    @Test
+    void agregarEquipoRepetido() {
+        Club club = new Club("Club Deportivo");
+        Deporte deporte = new Deporte("Futbol");
+        Equipo equipo = new Equipo("Equipo", deporte);
+        club.crearEquipo(equipo);
+        club.crearEquipo(equipo);
+        assertEquals(1, club.getEquiposList().size());
+    }
+
+    @Test
+    void asignarEntrenador() {
+        Club club = new Club("Club Deportivo");
+        Deporte deporte = new Deporte("Futbol");
+        Equipo equipo = new Equipo("Equipo", deporte);
+        Entrenador entrenador = new Entrenador("Juan", "Perez", "b@b.com", 50, deporte);
+        club.asignarEntrenador(equipo, entrenador);
+        assertEquals(entrenador, equipo.getEntrenador());
+    }
+
+    @Test
+    void asignarJugadores() {
+        Club club = new Club("Club Deportivo");
+        Deporte deporte = new Deporte("Futbol");
+        Deportista deportista = new Deportista("Juan", "Perez", "a@a.com", deporte);
+        Equipo equipo = new Equipo("Equipo", deporte);
+        club.registrarDeportista(deportista);
+        club.asignarDeportista(equipo, deportista);
+        assertEquals(deportista, equipo.getIntegrantes(deportista));
+    }
 }
